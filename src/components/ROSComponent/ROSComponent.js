@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Joystick } from 'react-joystick-component';
-import ROSLIB from 'roslib'; // Ensure ROSLIB is correctly imported
+import ROSLIB from 'roslib'; 
 
 const ROSComponent = () => {
     const ros = useRef(new ROSLIB.Ros());
@@ -39,33 +39,22 @@ const ROSComponent = () => {
 
     useEffect(() => {
         return () => {
-            disconnectFromROS(); // Cleanup on component unmount
+            disconnectFromROS();
         };
     }, []);
 
     const handleMove = (data) => {
         console.log('Joystick moved:', data);
 
-        // Calculate yaw angle (direction) and distance (magnitude)
-        const yaw = -1 * Math.atan2(data.x, data.y); // Yaw in radians
-        const distance = Math.sqrt(data.x ** 2 + data.y ** 2); // Distance from center
+        const yaw = -1 * Math.atan2(data.x, data.y);
+        const distance = Math.sqrt(data.x ** 2 + data.y ** 2); 
 
         const twist = new ROSLIB.Message({
-            linear: {
-                x: distance, // No linear movement
-                y: 0,
-                z: 0,
-            },
-            angular: {
-                x: 0,
-                y: 0,
-                z: yaw // Set yaw angle based on joystick direction
-            }
+            linear: {x: distance,y: 0,z: 0,},
+            angular: {x: 0,y: 0,z: yaw}
         });
 
-        // Publish the message
         cmdVel.current.publish(twist);
-        console.log('Published message:', twist);
     };
 
     const handleStop = () => {
@@ -74,9 +63,7 @@ const ROSComponent = () => {
             angular: {x: 0,y: 0,z: 0}
         });
 
-        // Publish stop command
         cmdVel.current.publish(twist);
-        console.log('Published stop message:', twist);
     };
 
     return (
