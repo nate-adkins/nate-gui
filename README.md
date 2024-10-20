@@ -1,3 +1,7 @@
+Current view:
+
+![Screen](readme/current_state.png)
+
 new terminal:
 ```bash
 ros2 launch rosbridge_server rosbridge_websocket_launch.xml 

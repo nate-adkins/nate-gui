@@ -7,7 +7,7 @@ const ROSComponent = () => {
     const [status, setStatus] = useState('Disconnected');
     const cmdVel = useRef(new ROSLIB.Topic({
         ros: ros.current,
-        name: '/turtle1/cmd_vel',
+        name: '/cmd_vel',
         messageType: 'geometry_msgs/Twist'
     }));
 

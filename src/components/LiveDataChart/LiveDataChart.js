@@ -72,6 +72,14 @@ const LiveDataChart = () => {
     setIsLive(true);
   };
 
+  // Calculate dynamic Y-axis domain based on visible data
+  const getYDomain = (data) => {
+    if (data.length === 0) return [0, 1]; // Default domain if no data
+    const min = Math.min(...data.map((d) => d.value));
+    const max = Math.max(...data.map((d) => d.value));
+    return [min - (max - min) * 0.1, max + (max - min) * 0.1]; // Add 10% padding
+  };
+
   return (
     <div style={{ padding: "20px" }}>
       <h3>Live /cmd_vel Data (Linear X)</h3>
@@ -83,8 +91,7 @@ const LiveDataChart = () => {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="time" />
-        {/* Set a fixed Y-axis domain */}
-        <YAxis domain={[-1, 1]} /> {/* Adjust these values based on your expected data range */}
+        <YAxis domain={getYDomain(visibleData)} /> {/* Dynamic Y-axis scaling */}
         <Tooltip />
         <Line type="monotone" dataKey="value" stroke="#8884d8" isAnimationActive={false} />
       </LineChart>
