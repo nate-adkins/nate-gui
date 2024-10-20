@@ -37,11 +37,11 @@ const ROSComponent = () => {
         }
     };
 
-    useEffect(() => {
-        return () => {
-            disconnectFromROS();
-        };
-    }, []);
+    // useEffect(() => {
+    //     return () => {
+    //         disconnectFromROS();
+    //     };
+    // }, []);
 
     const handleMove = (data) => {
         console.log('Joystick moved:', data);

@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between; /* Spread items evenly across the container */
     margin: 0; /* Remove margin */
-    padding: 10px; /* Add some padding if needed */
+    /* padding: 10px; Add some padding if needed */
     background-color: #f0f0f0; /* Background color for visibility */
     border-bottom: 1px solid #ccc; /* Optional: Add a bottom border */
     width: 100%; /* Ensure it takes full width */
@@ -11,14 +11,14 @@
   
   .tabs button {
     flex: 1; /* Allow buttons to grow and take equal space */
-    padding: 15px 0; /* Adjust padding to look balanced */
+    padding: 15px; /* Adjust padding to look balanced */
     font-size: 20px;
     cursor: pointer;
     border: none;
-    border-radius: 5px;
+    /* border-radius: 0px; */
     background-color: #f0f0f0;
-    transition: background-color 0.3s;
-    margin: 0 5px; /* Space between buttons */
+    transition: background-color 0.1s;
+    margin: 0px; /* Space between buttons */
   }
   
   .tabs button:first-child {
@@ -30,7 +30,7 @@
   }
   
   .tabs button:hover {
-    background-color: #ddd;
+    background-color: #e0e0e0;
   }
   
   .tabs button.active {

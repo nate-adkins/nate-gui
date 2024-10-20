@@ -1,0 +1,9 @@
+.datagraph {
+    display: flex;
+    justify-content: space-between; /* Spread items evenly across the container */
+    margin: 0; /* Remove margin */
+    padding: 10px;
+    background-color: #f0f0f0; /* Background color for visibility */
+    border-bottom: 1px solid #ccc; /* Optional: Add a bottom border */
+    width: 50%; /* Ensure it takes full width */
+  }
